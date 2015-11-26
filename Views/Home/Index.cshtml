@@ -1,0 +1,98 @@
+﻿@model StudyAbroad.ViewModels.LocationIndex
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- Carousel -->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/Images/bewanderheader.jpg" alt="header-photo">
+            <div class="carousel-caption">
+                <p><a class="btn btn-lg btn-success" onclick="location.href='@Url.Action("Index", "Countries")'" role="button">Explore Countries</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel Ends -->
+<br />
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-6 col-lg-offset-3">
+            <h4>Bewander offers the latest student reviews for <em>"Things to Do"</em>, 
+            <em>"Places to Eat"</em> and other <em>"Not to be Missed"</em> events at or 
+            near the study locations. 
+            </h4>
+        </div>
+    </div>
+</div>
+
+@*<div class="container-map">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <iframe width='75%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/smag230.cigyk2ahl0vfn4pm3oeyor3g9/attribution,zoomwheel,geocoder,share.html?access_token=pk.eyJ1Ijoic21hZzIzMCIsImEiOiJjaWd5azJiczEwdmxkd2NtNWhwZWhyNDh0In0.toAU2T3KTEZIEDfvfC9ONA'></iframe>
+        </div>
+    </div>
+</div>*@
+
+<div class="container-map text-center">
+    <h2>Search a city below</h2>
+    <div class="row">
+        <div class="col-md-10 col-lg-offset-1">
+            <div id="map">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*I commented out the line below because I'm getting a compilation error page when enabled*@
+@*@if (Model.Countries != null)
+{
+        <p class="col-sm-4 col-md-3">
+            @Html.ActionLink(c.CountryName, "Country", new { id = c.CountryID })
+        </p>
+    }
+</div>*@
+
+<ul>
+    @foreach (var c in Model.Countries)
+    {
+        <li>
+            @Html.ActionLink(c.CountryName, "Country", new { id = c.CountryID })
+        </li>
+        <ul>
+            @foreach (var s in Model.States)
+            {
+                if (c.CountryID == s.CountryID)
+                {
+                    <li>
+                        @Html.ActionLink(s.StateName, "State", new { id = s.StateID })
+                    </li>
+                    <ul>
+                    @foreach (var i in Model.Cities)
+                    {
+                        if (s.StateID == i.StateID)
+                        {
+                        <li>
+                            @Html.ActionLink(i.CityName, "City", new { id = i.CityID })
+                        </li>
+                        }
+                    }
+                    </ul>
+                }
+             }
+        </ul>
+
+    }
+</ul>
+
+<ul>
+    @foreach (var a in Model.Subjects)
+    {
+        <li>
+            @a.SubjectName
+        </li>
+    }
+</ul>
