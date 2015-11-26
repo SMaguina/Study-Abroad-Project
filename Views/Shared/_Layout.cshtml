@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Study Abroad</title>
+    <!-- Mapbox Styles -->
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+    <!-- Custom Site.css and Bootstrap styles sheet-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navbar begins -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Bewander", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("My Profile", "UserProfile", "Home")</li>
+                    <li>@Html.ActionLink("Reviews", "Index", "Reviews")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Locations<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Countries", "Index", "Countries")</li>
+                            <li>@Html.ActionLink("States", "Index", "States")</li>
+                            <li>@Html.ActionLink("Cities", "Index", "City")</li>
+                        </ul>
+                    </li>
+                        <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                        <li>@Html.ActionLink("Join", "Index", "Join")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar ends -->
+
+    <!-- Footer begins -->
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>&copy; @DateTime.Now.Year - Bewander &middot; @Html.ActionLink("About", "About", "Home") &middot; @Html.ActionLink("Contact", "Contact", "Home")</p>
+        </footer>
+    </div>
+    <!-- Footer ends -->
+
+    <!-- Modernizer script-->
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <!-- Mapbox JS -->
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+    <!-- Custom site JS -->
+    <script src="~/Scripts/main.js"></script>
+</body>
+</html>
