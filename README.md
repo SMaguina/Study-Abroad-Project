@@ -10,5 +10,3 @@ Contributed to a client project within a 2 week sprint timeline with a scrum tea
 I helped lay the groundwork of the front-end side of the app while keeping scalability/maintainability in mind for future students to build upon the project. The scripts here are the pages I particulary worked on.
 
 For more details on the project, you can read my [blog post here](http://codepen.io/SMaguina/post/bootstrap-aspnet).
-
-Any future improvements or code contributed will be continually added here as well.
