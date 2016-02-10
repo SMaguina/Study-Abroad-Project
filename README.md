@@ -2,7 +2,7 @@
 ASP.NET MVC Web Application with Bootstrap Front End Framework
 
 Contributed to a client project within a 2 week sprint timeline with a scrum team to work on the front-end architecture of the application. This is an ASP.NET MVC application run with Razor using C# in Visual Studio along with Team Foundation Server for version control. Things I worked on included the following:
-* Created Wireframes of Version 1 of the site (click on *Study Abroad Project*): https://tpmedia.mybalsamiq.com/projects
+* Created Wireframes of Version 1 of the site (click on *ARCHIVED PROJECTS COLLECTION*): https://tpmedia.mybalsamiq.com/projects
 * Create dropdown and link View .cshtml pages into Navigation bar
 * Hand-code the Homepage with proper HTML/CSS and Bootstrap grid system 
 * Research into open-source map design/platform tools and integrate Mapbox.js API 
